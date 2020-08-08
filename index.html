@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Data on Covid </title>
+</head>
+<body>
+    <div id="table">
+        <table style="width: 60%;">
+            <thead>
+                <th>country</th>
+                    <th>confirmCases</th>
+                    <th>activeCases</th>
+                    <th>recoveredCases</th>
+                    <tbody id="table1">
+
+                    </tbody>
+            </thead>
+        </table>
+
+    </div>
+
+<script type="text/jsx">
+    const data=[
+    {id:1,country:"Ghana",confirmCases:23432,activeCases:5432,recoveredCases:3456},
+    {id:2,country:"togo",confirmCases:5432,activeCases:4332,recoveredCases:356},
+    {id:3,country:"nigeria",confirmCases:23432,activeCases:1232,recoveredCases:346},
+    {id:4,country:"benin",confirmCases:23732,activeCases:7232,recoveredCases:345},
+    {id:5,country:"kenya",confirmCases:2332,activeCases:5432,recoveredCases:456},
+];
+
+
+function Body(props){
+    return(
+    <tr>
+      <td className="just_text">{props.country}</td>
+      <td className="just_text">{props.confirmCases}</td>
+      <td className="just_text">{props.activeCases}</td>
+      <td className="just_text">{props.recoveredCases}</td>
+    </tr>
+    );
+}
+let textList = data.map(item => <Body key={item.id} country={item.country} confirmCases={item.confirmCases} activeCases={item.activeCases} recoveredCases={item.recoveredCases} />);
+
+
+        ReactDOM.render(
+            <React.StrictMode>
+                {textList}
+            </React.StrictMode>, document.getElementById('table1'));
+ 
+
+</script>
+
+</body>
+</html>
